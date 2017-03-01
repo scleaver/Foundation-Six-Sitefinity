@@ -1,0 +1,4 @@
+{
+	"assets/dist/js/foundation.min.js": "node_modules/foundation-sites/dist/js/foundation.js",
+	"assets/dist/js/foundation.init.js": "assets/src/js/foundation.init.js"
+}

@@ -1,0 +1,61 @@
+﻿@using System.Web.Mvc;
+@using Telerik.Sitefinity.Frontend.Mvc.Helpers;
+@using Telerik.Sitefinity.Modules.Pages;
+@using Telerik.Sitefinity.UI.MVC;
+@using Telerik.Sitefinity.Services;
+<!doctype html>
+<html class="no-js" @Html.RenderLangAttribute()>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    @Html.Section("head")
+    @Html.StyleSheet(Url.Content("~/ResourcePackages/Classic/assets/dist/css/styles.min.css"), "head")
+</head>
+<body>
+    @Html.Section("top")
+    <div class="sfPublicWrapper" id="PublicWrapper">
+        <div class="off-canvas-wrapper">
+            <div class="off-canvas position-left" id="offCanvasLeft1" data-off-canvas>
+                <!-- Your menu or Off-canvas content goes here -->
+                @Html.SfPlaceHolder("OffCanvasLeftPlaceholder")
+            </div>
+            @*<div class="off-canvas position-right" id="offCanvasRight1" data-off-canvas>
+                    <!-- Your menu or Off-canvas content goes here -->
+                </div>
+                <div class="off-canvas position-top" id="offCanvasTop1" data-off-canvas>
+                    <!-- Your menu or Off-canvas content goes here -->
+                </div>
+                <div class="off-canvas position-bottom" id="offCanvasBottom1" data-off-canvas>
+                    <!-- Your menu or Off-canvas content goes here -->
+                </div>*@
+            <div class="off-canvas-content" data-off-canvas-content>
+                <!-- Your page content lives here -->
+                @Html.SfPlaceHolder("PageContentPlaceholder")
+            </div>
+        </div>
+    </div>
+
+    @* Inline editing scripts and helpers. They should be available only when inline editing is possible. *@
+    @if (Html.ShouldRenderInlineEditing())
+    {
+        @Html.Script(ScriptRef.MicrosoftAjax, "top")
+        @Html.Script(ScriptRef.MicrosoftAjaxCore, "top")
+        @Html.Script(ScriptRef.JQuery, "top")
+
+        @Html.Script(Url.EmbeddedResource("Telerik.Sitefinity.Resources.Reference", "Telerik.Sitefinity.Resources.Scripts.jquery.ba-outside-events.min.js"), "top")
+        @Html.Script(ScriptRef.KendoAll, "top")
+        @Html.Script(ScriptRef.KendoTimezones, "top")
+        @Html.Script(Url.EmbeddedResource("Telerik.Sitefinity.Resources.Reference", "Telerik.Sitefinity.Resources.Scripts.RequireJS.require.min.js"), "top")
+        @Html.InlineEditingManager(false)
+    }
+    @Html.Section("bottom")
+    @if (!SitefinityContext.IsBackend || SitefinityContext.IsPreviewMode)
+    {
+        @Html.Script(ScriptRef.JQuery, "bottom")
+    }
+    @Html.Script(Url.Content("~/ResourcePackages/Classic/assets/dist/js/foundation.min.js"), "bottom")
+    @Html.Script(Url.Content("~/ResourcePackages/Classic/assets/dist/js/foundation.init.js"), "bottom")
+</body>
+</html>
