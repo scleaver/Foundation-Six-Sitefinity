@@ -1,35 +1,32 @@
-@model Telerik.Sitefinity.Frontend.Navigation.Mvc.Models.INavigationModel
+﻿@model Telerik.Sitefinity.Frontend.Navigation.Mvc.Models.INavigationModel
 
 @using Telerik.Sitefinity.Frontend.Mvc.Helpers;
 @using Telerik.Sitefinity.Frontend.Navigation.Mvc.Models;
 @using Telerik.Sitefinity.Modules.Pages;
 
 @*Add scripts and stylesheets*@
-@Html.Script(ScriptRef.JQuery, "top")
-@Html.Script(Url.WidgetContent("assets/dist/js/foundation.min.js"), "top")
+@Html.Script(ScriptRef.JQuery, "top", false)
+
+@Html.Script(Url.WidgetContent("Mvc/Scripts/Bootstrap/js/bootstrap.min.js"), "top", false)
+@Html.Script(Url.WidgetContent("Mvc/Scripts/Navigation.js"), "bottom", false)
 
 <div class="@Model.CssClass">
+    @Html.Action("GetView", new { viewName = "Dropdown",  model= Model})
 
-@* <div class="show-for-small-only">@Html.Action("GetView", new { viewName = "Dropdown", model= Model})</div> *@
+        <div>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#@Html.UniqueId("navbar")">
+            @*Toggle navigation button for responsive design*@
+              Toggle navigation
+            </button>
+        </div>
 
-    <nav class="top-bar" data-topbar data-options="is_hover: false">
-        <ul class="title-area">
-            <li class="name">
-                <h1>
-                    <a href="#">Sitefinity</a>
-                </h1>
-            </li>
-            <li class="toggle-topbar menu-icon"><a href><span>Menu</span></a></li>
+        <ul id='@Html.UniqueId("navbar")'>
+            @foreach (var node in Model.Nodes)
+            {
+                @RenderRootLevelNode(node);
+            }
         </ul>
-        <section class="top-bar-section">
-            <ul>
-                @foreach (var node in Model.Nodes)
-                {
-                    @RenderRootLevelNode(node);
-                }
-            </ul>
-        </section>
-    </nav>
+
 </div>
 
 @*Here is specified the rendering for the root level*@
@@ -37,18 +34,16 @@
 {
     if (node.ChildNodes.Count > 0)
     {
-        <li class="has-dropdown">
-            <a href="#">@node.Title</a>
-            <ul class="dropdown">
+        <li>
+            <a href="#" data-toggle="dropdown">@node.Title</a>
+            <ul>
                 @RenderSubLevelsRecursive(node)
             </ul>
         </li>
     }
     else
     {
-        <li>
-            <a href="@node.Url" target="@node.LinkTarget">@node.Title</a>
-        </li>
+        <li class="@GetClass(node)"><a href="@node.Url" target="@node.LinkTarget">@node.Title</a></li>
     }
 }
 
@@ -59,11 +54,9 @@
     {
         if(childNode.ChildNodes.Count > 0)
         {
-             <li class="has-dropdown @GetClass(childNode)">
-                <a target="@childNode.LinkTarget">@childNode.Title
-                    <!-- <span class="right-caret"></span> -->
-                </a>
-                <ul class="dropdown">
+             <li>
+                <a href="@childNode.Url" target="@childNode.LinkTarget">@childNode.Title</a>
+                <ul>
                     @RenderSubLevelsRecursive(childNode)
                 </ul>
             </li>
@@ -90,7 +83,4 @@
         @Html.Raw("active");
     }
 }
-
-@Html.Script(Url.WidgetContent("assets/dist/js/foundation.topbar.min.js"), "bottom")
-@Html.Script(Url.WidgetContent("assets/dist/js/foundation.init.js"), "bottom")
 

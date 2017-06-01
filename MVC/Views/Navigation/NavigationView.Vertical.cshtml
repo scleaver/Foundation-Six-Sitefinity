@@ -1,22 +1,24 @@
-@model Telerik.Sitefinity.Frontend.Navigation.Mvc.Models.INavigationModel
+﻿@model Telerik.Sitefinity.Frontend.Navigation.Mvc.Models.INavigationModel
 
 @using Telerik.Sitefinity.Frontend.Mvc.Helpers;
 @using Telerik.Sitefinity.Frontend.Navigation.Mvc.Models;
 @using Telerik.Sitefinity.Modules.Pages;
 
 @*Add scripts and stylesheets*@
+@Html.Script(ScriptRef.JQuery, "top", false)
+
+@Html.Script(Url.WidgetContent("Mvc/Scripts/Navigation.js"), "bottom", false)
 
 <div class="@Model.CssClass">
-@* <div class="show-for-small-only">@Html.Action("GetView", new { viewName = "Dropdown", model= Model})</div> *@
+    @Html.Action("GetView", new { viewName = "Dropdown", model= Model})
 
-    <ul class="side-nav">
+      <ul>
         @foreach (var node in Model.Nodes)
         {
             @RenderSubLevelsRecursive(node);
         }
     </ul>
 </div>
-
 
 @*Here is specified the rendering for the sub levels*@
 @helper RenderSubLevelsRecursive(NodeViewModel node)
@@ -48,3 +50,4 @@
         @Html.Raw("active");
     }
 }
+
