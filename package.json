@@ -1,25 +1,27 @@
 {
-  "name": "Classic",
+  "name": "FoundationSix",
   "devDependencies": {
-    "foundation-sites": "^6.3.0",
+    "foundation-sites": "^6.3.1",
     "grunt": "^1.0.1",
-    "grunt-concurrent": "^2.3.1",
-    "grunt-contrib-clean": "^1.0.0",
-    "grunt-contrib-csslint": "^2.0.0",
-    "grunt-contrib-cssmin": "^2.0.0",
+    "grunt": "^0.4.5",
+    "grunt-concurrent": "^2.0.0",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-csslint": "^1.0.0",
+    "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-imagemin": "^1.0.1",
-    "grunt-contrib-uglify": "^2.1.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-newer": "^1.2.0",
-    "grunt-sass": "^2.0.0",
-    "grunt-spritesmith": "^6.4.0",
-    "grunt-uncss": "^0.6.1",
-    "load-grunt-tasks": "^3.5.2",
-    "time-grunt": "^1.4.0",
-    "magnific-popup": "^1.1.0"
+    "grunt-contrib-uglify": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-newer": "^1.1.1",
+    "grunt-sass": "^1.0.0",
+    "grunt-spritesmith": "^6.3.1",
+    "grunt-webfont": "^1.0.0",
+    "load-grunt-tasks": "^3.2.0",
+    "magnific-popup": "^1.0.0",
+    "time-grunt": "^1.2.1"
   },
   "author": {
     "name": "Sitefinity ANZ Team",
-    "email": "seth.cleaver@telerik.com"
+    "email": "seth.cleaver@progress.com"
   }
 }
