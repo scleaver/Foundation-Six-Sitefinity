@@ -438,8 +438,8 @@ body {
   margin: 0;
   padding: 0;
   background: #fefefe;
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-  font-weight: normal;
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
   line-height: 1.5;
   color: #0a0a0a;
   -webkit-font-smoothing: antialiased;
@@ -1151,7 +1151,7 @@ i {
 
 strong,
 b {
-  font-weight: bold;
+  font-weight: 700;
   line-height: inherit; }
 
 small {
@@ -1164,9 +1164,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-family: "Amaranth", sans-serif;
   font-style: normal;
-  font-weight: normal;
+  font-weight: 700;
   color: inherit;
   text-rendering: optimizeLegibility; }
   h1 small,
@@ -1273,7 +1273,7 @@ dl {
   margin-bottom: 1rem; }
   dl dt {
     margin-bottom: 0.3rem;
-    font-weight: bold; }
+    font-weight: 700; }
 
 blockquote {
   margin: 0 0 1rem;
@@ -1303,7 +1303,7 @@ code {
   border: 1px solid #cacaca;
   background-color: #e6e6e6;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
-  font-weight: normal;
+  font-weight: 400;
   color: #0a0a0a; }
 
 kbd {
@@ -1316,7 +1316,7 @@ kbd {
 .subheader {
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1.4;
   color: #8a8a8a; }
 
@@ -1438,7 +1438,7 @@ textarea {
   box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
   font-family: inherit;
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: 400;
   color: #0a0a0a;
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
   appearance: none; }
@@ -1500,7 +1500,7 @@ label {
   display: block;
   margin: 0;
   font-size: 0.875rem;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 1.8;
   color: #0a0a0a; }
   label.middle {
@@ -1635,7 +1635,7 @@ select {
   margin-top: -0.5rem;
   margin-bottom: 1rem;
   font-size: 0.75rem;
-  font-weight: bold;
+  font-weight: 700;
   color: #cc4b37; }
   .form-error.is-visible {
     display: block; }
@@ -3286,7 +3286,7 @@ table {
     background-color: #fefefe; }
   table caption {
     padding: 0.5rem 0.625rem 0.625rem;
-    font-weight: bold; }
+    font-weight: 700; }
   table thead {
     background: #f8f8f8;
     color: #0a0a0a; }
@@ -3301,7 +3301,7 @@ table {
   table tfoot th,
   table tfoot td {
     padding: 0.5rem 0.625rem 0.625rem;
-    font-weight: bold;
+    font-weight: 700;
     text-align: left; }
   table tbody th,
   table tbody td {
@@ -3455,7 +3455,7 @@ a.thumbnail {
   position: relative;
   display: inline-block;
   border-bottom: dotted 1px #8a8a8a;
-  font-weight: bold;
+  font-weight: 700;
   cursor: help; }
 
 .tooltip {
