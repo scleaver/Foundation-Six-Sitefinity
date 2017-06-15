@@ -10,13 +10,14 @@
 }
 .post_lst-itm-hdg
 {
-
-}
-.post_lst-itm-meta
-{
-
+	@extend h3;
 }
 .post_lst-itm-desc
 {
 
+}
+.post_lst-itm-meta, .post_itm-meta
+{
+	@include flex;
+	@include flex-align($x: justify);
 }

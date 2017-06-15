@@ -50,7 +50,7 @@ $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
-  primary: #1779ba,
+  primary: #3f71c0,
   secondary: #767676,
   success: #3adb76,
   warning: #ffae00,
@@ -69,12 +69,35 @@ $global-margin: 1rem;
 $global-padding: 1rem;
 $global-weight-normal: 400;
 $global-weight-bold: 700;
-$global-radius: 0;
+$global-radius: 4px;
 $global-text-direction: ltr;
 $global-flexbox: true;
 $print-transparent-backgrounds: true;
 
 @include add-foundation-colors;
+
+$soc-email: #0a88ff;
+$soc-facebook: #306199;
+$soc-tumblr: #32506d;
+$soc-linkedin: #007bb6;
+$soc-twitter: #26c4f1;
+$soc-googleplus: #e93f2e;
+$soc-reddit: #8bbbe3;
+$soc-youtube: #df1c31;
+$soc-pinterest: #b81621;
+$soc-pocket: #ed4054;
+$soc-github: #444;
+$soc-instagram: #125688;
+$soc-hackernews: #ff6600;
+$soc-delicious: #0b79e5;
+$soc-vk: #4d71a9;
+$soc-print: #8d98a2;
+$soc-whatsapp: #43d854;
+$soc-xing: #005A5F;
+$soc-blogger: #ff8000;
+$soc-stumbleupon: #f74425;
+$soc-myspace: #000;
+$soc-digg: #000;
 
 // 2. Breakpoints
 // --------------
@@ -254,7 +277,24 @@ $button-sizes: (
   default: 0.9rem,
   large: 1.25rem,
 );
-$button-palette: $foundation-palette;
+
+$button-palette: map-merge($foundation-palette, (
+    facebook: $soc-facebook,
+    linkedin: $soc-linkedin,
+    googleplus: $soc-googleplus,
+    google: $soc-googleplus,
+    blogger: $soc-blogger,
+    reddit: $soc-reddit,
+    stumbleupon: $soc-stumbleupon,
+    myspace: $soc-myspace,
+    digg: $soc-digg,
+    instagram: $soc-instagram,
+    delicious: $soc-delicious,
+    github: $soc-github,
+    email: $light-gray,
+    tumblr: $soc-tumblr,
+    twitter: $soc-twitter,
+)) !default;
 $button-opacity-disabled: 0.25;
 $button-background-hover-lightness: -20%;
 $button-hollow-hover-lightness: -50%;
@@ -372,7 +412,7 @@ $select-triangle-color: $dark-gray;
 $select-radius: $global-radius;
 $input-color: $black;
 $input-placeholder-color: $medium-gray;
-$input-font-family: inherit;
+$input-font-family: $body-font-family;
 $input-font-size: rem-calc(16);
 $input-font-weight: $global-weight-normal;
 $input-background: $white;

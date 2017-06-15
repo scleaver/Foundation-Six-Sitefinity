@@ -7,12 +7,9 @@
 @*Add scripts and stylesheets*@
 @Html.Script(ScriptRef.JQuery, "top", false)
 
-@Html.Script(Url.WidgetContent("Mvc/Scripts/Navigation.js"), "bottom", false)
-
 <div class="@Model.CssClass">
-    @Html.Action("GetView", new { viewName = "Dropdown", model= Model})
-
-      <ul>
+    @*@Html.Action("GetView", new { viewName = "Dropdown", model= Model})*@
+      <ul class="vertical menu">
         @foreach (var node in Model.Nodes)
         {
             @RenderSubLevelsRecursive(node);
@@ -28,7 +25,7 @@
 
         @if (node.ChildNodes.Count > 0)
         {
-            <ul>
+            <ul class="nested vertical menu">
                 @foreach (var childNode in node.ChildNodes)
                 {
                     @RenderSubLevelsRecursive(childNode)

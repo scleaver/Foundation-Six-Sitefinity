@@ -5,22 +5,21 @@
 @using Telerik.Sitefinity.Modules.Pages;
 
 @*Add scripts and stylesheets*@
-@Html.Script(ScriptRef.JQuery, "top", false)
+@*@Html.Script(ScriptRef.JQuery, "top", false)*@
 
-@Html.Script(Url.WidgetContent("Mvc/Scripts/Bootstrap/js/bootstrap.min.js"), "top", false)
-@Html.Script(Url.WidgetContent("Mvc/Scripts/Navigation.js"), "bottom", false)
+@*@Html.Script(Url.WidgetContent("Mvc/Scripts/Bootstrap/js/bootstrap.min.js"), "top", false)
+@Html.Script(Url.WidgetContent("Mvc/Scripts/Navigation.js"), "bottom", false)*@
 
 <div class="@Model.CssClass">
-    @Html.Action("GetView", new { viewName = "Dropdown",  model= Model})
+    @*@Html.Action("GetView", new { viewName = "Dropdown",  model= Model})*@
 
-        <div>
+        <!-- div>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#@Html.UniqueId("navbar")">
             @*Toggle navigation button for responsive design*@
               Toggle navigation
             </button>
-        </div>
-
-        <ul id='@Html.UniqueId("navbar")'>
+        </div -->
+        <ul class="dropdown menu" data-dropdown-menu>
             @foreach (var node in Model.Nodes)
             {
                 @RenderRootLevelNode(node);
@@ -34,9 +33,9 @@
 {
     if (node.ChildNodes.Count > 0)
     {
-        <li>
-            <a href="#" data-toggle="dropdown">@node.Title</a>
-            <ul>
+        <li class="@GetClass(node)">
+            <a href="#">@node.Title</a>
+            <ul class="menu">
                 @RenderSubLevelsRecursive(node)
             </ul>
         </li>

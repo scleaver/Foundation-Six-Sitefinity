@@ -1,0 +1,29 @@
+.soc_share
+{
+	@extend .no-bullet;
+	@include flex-grid-row(null, expand, null, true, $grid-column-gutter) { }
+
+	li
+	{
+		@include flex-grid-column(shrink, 0);
+
+		&:last-child
+		{
+			.button
+			{
+				margin-right: 0;
+			}
+		}
+	}
+
+	.button
+	{
+		margin-right: 1rem;
+		color: $white;
+
+		i
+		{
+			margin-right: 0.5em;
+		}
+	}
+}

@@ -174,7 +174,7 @@ module.exports = function(grunt) {
                 report: 'gzip',
                 warnings: true,
                 mangle: true,
-                compress: true
+                compress: false
             },
             dist: {
                 files: {

@@ -7,107 +7,111 @@
     var pageTitle = SocialShareButtons.PageTitle;
 }
 
-@Html.StyleSheet(Url.WidgetContent("assets/dist/css/sf-social-share.min.css"), "head", false)
-
 <div class="@Model.CssClass">
-    <ul class="list-inline sf-social-share">
+    <ul class="soc_share">
         @foreach (var button in Model.SocialButtons)
         {
             switch (button.ButtonName)
             {
                 case "Facebook":
                     <li>
-                        <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?app_id=309437425817038&amp;sdk=joey&amp;u=@shareUrl&amp;display=popup&amp;ref=plugin', 'Facebook','toolbar=no,width=550,height=180'); return false">
-                            <span class="sf-icon-facebook"></span>
+                        <a class="button facebook" href="https://www.facebook.com/sharer/sharer.php?u=@shareUrl" title="Share on Facebook">
+                            <i class="fa fa-facebook" aria-hidden="true"></i> <span class="show-for-sr">Share on Facebook</span>
                         </a>
                     </li>
                     break;
                 case "Twitter":
                 <li>
-                    <a href="#" onclick="window.open('http://twitter.com/share?url=@shareUrl', 'Twitter', 'toolbar=no,width=550,height=450'); return false" ><span class="sf-icon-twitter"></span></a>
+                    <a class="button twitter" href="http://twitter.com/share?url=@shareUrl" data-reveal-id="myModal" data-reveal-ajax="true">
+                        <i class="fa fa-twitter" aria-hidden="true"></i> <span class="show-for-sr">Share on Twitter</span>
+                    </a>
                 </li>
                     break;
                 case "LinkedIn":
                 <li>
-                    <a href="#" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&amp;url=@shareUrl&amp;title=@pageTitle', 'LinkedIn', 'toolbar=no,width=550,height=450', 'yes', 'center'); return false">
-                        <span class="sf-icon-linkedin"></span>
+                    <a class="button linkedin" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=@shareUrl&amp;title=@pageTitle" title="Share on LinkedIn">
+                        <i class="fa fa-linkedin" aria-hidden="true"></i> <span class="show-for-sr">Share on LinkedIn</span>
                     </a>
                 </li>
                     break;
                 case "GooglePlusOne":
                 <li>
-                    <div class='g-plusone' data-size='small' data-annotation='none'></div>
-                    <script type='text/javascript'>
-                        (function () { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/platform.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
-                    </script>
+                    <a class="button googleplus" href="https://plus.google.com/share?url=@shareUrl" title="Share on Google+">
+                        <i class="fa fa-google-plus" aria-hidden="true"></i> <span class="show-for-sr">Share on Google+</span>
+                    </a>
                 </li>
                     break;
                 case "Blogger":
                 <li>
-                    <a href="#" onclick="window.open('https://www.blogger.com/blogger.g?t&u=@shareUrl&n=@pageTitle', 'Blogger','toolbar=no,width=550,height=550'); return false" title="Share on Blogger">
-                        <span class="sf-icon-blogger"></span>
+                    <a class="button blogger" href="https://www.blogger.com/blogger.g?t&u=@shareUrl&n=@pageTitle" title="Share on Blogger">
+                        <i class="fa fa-rss" aria-hidden="true"></i> <span class="show-for-sr">Share on Blogger</span>
                     </a>
                 </li>
                     break;
                 case "Delicious":
                 <li>
-                    <a href="#" onclick="window.open('https://delicious.com/save?v=5&noui&jump=close&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550'); return false;">
-                        <span class="sf-icon-delicious"></span>
+                    <a class="button delicious" href="https://delicious.com/save?v=5&noui&jump=close&url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent(document.title)" title="Sahre on Delicious">
+                        <i class="fa fa-delicious" aria-hidden="true"></i> <span class="show-for-sr">Share on Delicious</span>
                     </a>
                 </li>
                     break;
                 case "Tumblr":
                 <li>
-                    <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:16px; height:16px; background:url('https://platform.tumblr.com/v1/share_4.png') top left no-repeat transparent;">Share on Tumblr</a>
+                    <a class="button tumblr" href="http://tumblr.com/share/link?url=@shareUrl&name=@pageTitle"  title="Share on Tumblr">
+                        <i class="fa fa-tumblr" aria-hidden="true"></i> <span class="show-for-sr">Share on Tumblr</span>
+                    </a>
                 </li>
                     break;
                 case "GoogleBookmarks":
                 <li>
-                    <a href="#" onclick="window.open('https://www.google.com/bookmarks/mark?op=add&bkmk=@shareUrl&title=@pageTitle', 'Google bookmarks','toolbar=no,width=900,height=550'); return false" title="Share on GoogleBookmarks">
-                        <span class="sf-icon-google"></span>
+                    <a class="button google" href="https://www.google.com/bookmarks/mark?op=add&bkmk=@shareUrl&title=@pageTitle" title="Share on GoogleBookmarks">
+                        <i class="fa fa-bookmark" aria-hidden="true"></i> <span class="show-for-sr">Google Bookmarks</span>
                     </a>
                 </li>
                     break;
                 case "Digg":
                 <li>
-                    <a href="#" onclick="window.open('http://digg.com/submit?url=@shareUrl&title=@pageTitle', 'Digg','toolbar=no,width=550,height=550'); return false" title="Share on Digg">
-                        <span class="sf-icon-digg"></span>
+                    <a class="button digg" href="http://digg.com/submit?url=@shareUrl&title=@pageTitle" title="Share on Digg">
+                        <i class="fa fa-digg" aria-hidden="true"></i> <span class="show-for-sr">Share on Digg</span>
                     </a>
                 </li>
                     break;
                 case "MySpace":
                 <li>
-                    <a href="#" onclick="window.open('http://myspace.com/Modules/PostTo/Pages/?u=@shareUrl&t=@pageTitle', 'My Space','toolbar=no,width=550,height=550'); return false" title="Share on MySpace">
-                        <span class="sf-icon-myspace"></span>
+                    <a class="button myspace" href="http://myspace.com/Modules/PostTo/Pages/?u=@shareUrl&t=@pageTitle" title="Share on MySpace">
+                        <i class="fa fa-users" aria-hidden="true"></i> <span class="show-for-sr">Share on MySpace</span>
                     </a>
                 </li>
                     break;
                 case "StumbleUpon":
                 <li>
-                    <a href="#" onclick="window.open('http://stumbleupon.com/submit?url=@shareUrl&title=@pageTitle', 'Stumble upon','toolbar=no,width=550,height=550'); return false" title="Share on StumbleUpon">
-                        <span class="sf-icon-stumble-upon"></span>
+                    <a class="button stumbleupon" href="http://stumbleupon.com/submit?url=@shareUrl&title=@pageTitle" title="Share on StumbleUpon">
+                        <i class="fa fa-stumbleupon" aria-hidden="true"></i> <span class="show-for-sr">Share on StumbleUpon</span>
                     </a>
                 </li>
                     break;
                 case "Reddit":
                 <li>
-                    <a href="#" onclick="window.open('http://www.reddit.com/submit?newwindow=1&url=@shareUrl&title=@pageTitle', 'Reddit','toolbar=no,width=870,height=550'); return false" title="Share on Reddit">
-                        <span class="sf-icon-reddit"></span>
+                    <a class="button reddit" href="http://www.reddit.com/submit?newwindow=1&url=@shareUrl&title=@pageTitle" title="Share on Reddit">
+                        <i class="fa fa-reddit-alien" aria-hidden="true"></i> <span class="show-for-sr">Share on Reddit</span>
                     </a>
                 </li>
                     break;
-
                 case "MailTo":
                 <li>
-                    <a onclick="window.open('mailto:?body=@shareUrl&subject=@pageTitle', 'MailTo', 'toolbar=no,width=550,height=550'); return false" title="Tell a friend">
-                        <span class="sf-icon-mailto"></span>
+                    <a class="button" href="mailto:?body=@shareUrl&subject=@pageTitle" title="Send via email">
+                        <i class="fa fa-envelope-o" aria-hidden="true"></i> <span class="show-for-sr">Share on Email</span>
                     </a>
                 </li>
                     break;
-
                 default:
                     break;
             }
         }
+        <li>
+            <a class="button secondary" href="javascript:window.print()">
+                <i class="fa fa-print" aria-hidden="true"></i> <span class="show-for-sr">Print</span>
+            </a>
+        </li>
     </ul>
 </div>

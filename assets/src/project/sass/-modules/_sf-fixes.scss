@@ -7,4 +7,8 @@
     	background-color: inherit;
 		}
 	}
+	.row, .column, .columns
+	{
+		box-sizing: border-box;
+	}
 }

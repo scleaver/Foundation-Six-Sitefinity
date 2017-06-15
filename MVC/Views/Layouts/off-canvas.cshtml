@@ -27,9 +27,16 @@
 
 <body>
     @Html.Section("top")
-
-    <div id="PublicWrapper">
-        @Html.SfPlaceHolder("Contentplaceholder1")
+    <div class="off-canvas-wrapper">
+        <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
+            <button class="close-button" aria-label="Close menu" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+            @Html.SfPlaceHolder("OffCanvasLeftPlaceholder")
+        </div>
+        <div class="off-canvas-content" data-off-canvas-content>
+            @Html.SfPlaceHolder("Contentplaceholder1")
+        </div>
     </div>
 
     @* Inline editing scripts and helpers. They should be available only when inline editing is possible. *@
@@ -50,7 +57,7 @@
     @if (!SystemManager.IsDesignMode)
     {
         @Html.Script(ScriptRef.JQuery, "top")
-        @Html.Script(Url.Content("~/ResourcePackages/FoundationSix/assets/dist/js/project.min.js"), "bottom")
     }
+    @Html.Script(Url.Content("~/ResourcePackages/FoundationSix/assets/dist/js/project.min.js"), "bottom")
 </body>
 </html>

@@ -14,8 +14,12 @@
 @(!String.IsNullOrEmpty(Model.CssClass) ?
     Html.Raw(String.Format("<div class=\"{0}\">", Model.CssClass)) :
     Html.Raw("<div>"))
-    <input type="text" title="@Html.Resource("SearchInput")" placeholder="@Model.BackgroundHint" id="@Html.Raw(searchTextBoxId)" value="@Html.Raw(ViewBag.SearchQuery)"/>
-    <button type="button" id="@Html.Raw(searchButtonId)">@Html.Resource("SearchLabel")</button>
+    <div class="input-group">
+        <input type="text" class="input-group-field" title="@Html.Resource("SearchInput")" placeholder="@Model.BackgroundHint" id="@Html.Raw(searchTextBoxId)" value="@Html.Raw(ViewBag.SearchQuery)" />
+        <div class="input-group-button">
+            <button type="button" class="button" id="@Html.Raw(searchButtonId)">@Html.Resource("SearchLabel")</button>
+        </div>
+    </div>
 
     <input type="hidden" data-sf-role="resultsUrl" value="@Html.Raw(Model.ResultsUrl)" />
     <input type="hidden" data-sf-role="indexCatalogue" value="@Html.Raw(Model.IndexCatalogue)" />
